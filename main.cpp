@@ -14,14 +14,23 @@
 
 #include <iostream>
 #include <vector>
+
 int main(int argc, char** argv)
 {
     OS_FUNC;
-    std::vector<char> vect;
-    std::cout<<"\033[2J";
-    std::cout<<"\033[H";
-    std::cout<<"OS Detected : "<< osString <<std::endl;
-    std::cout<<"\033[?25l";
-    std::cout<<"\033[?25h";
+    
+    int width = 100;
+    int height = 20;
+
+    std::vector<char> screen;
+    std::fill(screen.begin(), screen.end(), '.');
+    
+    for(int i = 0; i<width; ++i)
+    {
+        for(int j = 0; j<height; ++j)
+            std::cout<<screen[i];
+
+        std::cout<<std::endl;
+    }
     return 0;
 }
