@@ -7,7 +7,7 @@ public:
     Screen() = default;
     ~Screen() = default;
         
-    bool Init();
+    bool Init(int width, int height);
     bool Display();
 
 private:

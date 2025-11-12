@@ -22,11 +22,13 @@ public:
     int GetWidth() {return m_width;}
     int GetHeight() {return m_height;}
 
-    bool ParseArguments(int argc, char** argv);
 
     void DisplayHelp();
     void SetScreenWidth(int value);
     void SetScreenHeight(int value);
+
+private:
+    bool ParseArguments(int argc, char** argv);
 
 private:
     int m_width;

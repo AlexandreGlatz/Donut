@@ -14,23 +14,20 @@
 
 #include <iostream>
 #include <vector>
+#include "Settings.h"
+#include "Screen.h"
 
 int main(int argc, char** argv)
 {
     OS_FUNC;
+    Settings settings;
+    settings.Init(argc, argv);
     
-    int width = 100;
-    int height = 20;
+    Screen screen;
+    screen.Init(settings.GetWidth(), settings.GetHeight());
 
-    std::vector<char> screen;
-    std::fill(screen.begin(), screen.end(), '.');
+    screen.Display();
+
     
-    for(int i = 0; i<width; ++i)
-    {
-        for(int j = 0; j<height; ++j)
-            std::cout<<screen[i];
-
-        std::cout<<std::endl;
-    }
     return 0;
 }
