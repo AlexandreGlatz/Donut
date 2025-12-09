@@ -18,6 +18,7 @@
 #include "Screen.h"
 #include "Mesh.h"
 
+constexpr float PI = 3.14159265f;
 int main(int argc, char** argv)
 {
     OS_FUNC;
@@ -27,12 +28,9 @@ int main(int argc, char** argv)
     Screen screen(settings);
 
     Mesh mesh(settings);
-    mesh.GenerateCircle(5);
+    mesh.GenerateHalfCircle(10);
+    mesh.Rotate(PI/4.f, Axis::Z);
 
-    screen.Display(mesh);
-    mesh.GenerateCircle(5);
-    screen.Display(mesh);
-    mesh.GenerateSquare(5);
     screen.Display(mesh);
 
     return 0;

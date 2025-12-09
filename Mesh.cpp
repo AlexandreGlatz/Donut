@@ -61,3 +61,12 @@ void Mesh::GenerateSector(float radius, float angle)
         }
     }
 }
+
+void Mesh::Rotate(float angle, Axis axis)
+{
+    for(Vertex& vertex : m_vertices)
+    {
+        vertex.Rotate(angle, axis);
+    }
+
+}
