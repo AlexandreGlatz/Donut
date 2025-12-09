@@ -16,6 +16,7 @@
 #include <vector>
 #include "Settings.h"
 #include "Screen.h"
+#include "Mesh.h"
 
 int main(int argc, char** argv)
 {
@@ -23,11 +24,16 @@ int main(int argc, char** argv)
     Settings settings;
     settings.Init(argc, argv);
     
-    Screen screen;
-    screen.Init(settings.GetWidth(), settings.GetHeight());
+    Screen screen(settings);
 
-    screen.Display();
+    Mesh mesh(settings);
+    mesh.GenerateCircle(5);
 
-    
+    screen.Display(mesh);
+    mesh.GenerateCircle(5);
+    screen.Display(mesh);
+    mesh.GenerateSquare(5);
+    screen.Display(mesh);
+
     return 0;
 }
