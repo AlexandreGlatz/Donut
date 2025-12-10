@@ -28,8 +28,10 @@ int main(int argc, char** argv)
     Screen screen(settings);
 
     Mesh mesh(settings);
-    mesh.GenerateCircle(10);
+    mesh.GenerateTorus(10, 2);
+    mesh.Rotate(PI/2.f, Axis::X);
 
+    //screen.Display(mesh);
     while(true)
     {
         
