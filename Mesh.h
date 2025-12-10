@@ -62,6 +62,7 @@ public:
     void GenerateHalfCircle(float radius);
     void GenerateRectangle(float width, float height);
     void GenerateSquare(float size);
+    void GenerateTorus(float majorRadius, float minorRadius);
     void Rotate(float angle, Axis axis);
 
     std::vector<Vertex> const& GetVertices() const {return m_vertices;}

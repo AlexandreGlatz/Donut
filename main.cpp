@@ -28,10 +28,15 @@ int main(int argc, char** argv)
     Screen screen(settings);
 
     Mesh mesh(settings);
-    mesh.GenerateHalfCircle(10);
-    mesh.Rotate(PI/4.f, Axis::Z);
+    mesh.GenerateCircle(10);
 
-    screen.Display(mesh);
+    while(true)
+    {
+        
+        mesh.Rotate(0.001f, Axis::Y);
+        screen.Display(mesh);
+    }
+
 
     return 0;
 }

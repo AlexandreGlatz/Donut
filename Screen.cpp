@@ -22,6 +22,7 @@ bool Screen::Display(Mesh const& mesh)
 
 bool Screen::Display()
 {
+    std::cout<<"\x1B[H\x1B[2J"<<std::endl;
     for(int i = 0; i<m_height; ++i)
     {
         for(int j = 0; j<m_width; ++j)
@@ -35,6 +36,7 @@ bool Screen::Display()
 
 bool Screen::ProjectInScreenSpace(Mesh const& mesh)
 {
+    std::fill(m_display.begin(), m_display.end(), '.');
     for(Vertex vertex : mesh.GetVertices())
     {
         vertex.z += m_meshZPosition;

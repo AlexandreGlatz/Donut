@@ -62,6 +62,21 @@ void Mesh::GenerateSector(float radius, float angle)
     }
 }
 
+void Mesh::GenerateTorus(float majorRadius, float minorRadius)
+{
+    m_vertices.resize(m_resolution * m_resolution);
+    for (float seg = 0; seg < m_resolution ; seg++)
+    {
+        float angle = (M_PI * 2) / (m_resolution - 1);
+        for (float j = 0; j < m_resolution; j++)
+        {
+            float theta = (M_PI * 2 * j) / (m_resolution - 1);
+            m_vertices[m_resolution * seg + j] = {minorRadius + std::cos(theta) * majorRadius, std::sin(theta) * majorRadius, 1};
+            m_vertices[m_resolution * seg + j].Rotate(angle * seg, Axis::Y);
+        }
+    }
+}
+
 void Mesh::Rotate(float angle, Axis axis)
 {
     for(Vertex& vertex : m_vertices)
