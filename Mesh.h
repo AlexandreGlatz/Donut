@@ -36,7 +36,7 @@ struct Vertex {
         {
         case Axis::X:
             y = original.y * std::cos(angle) - original.z * std::sin(angle);
-            z = original.y * std::sin(angle) + original.z * std::sin(angle);
+            z = original.y * std::sin(angle) + original.z * std::cos(angle);
             break;
         case Axis::Y:
             x = original.x * std::cos(angle) + original.z * std::sin(angle);
